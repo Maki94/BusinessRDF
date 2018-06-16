@@ -24,7 +24,7 @@ public class MyTestInsert {
     public static final String SUBJECT = "Startupcompany";
 
     public static void main(String[] args) throws Exception {
-        String serviceEP = "http://infosys1.elfak.ni.ac.rs/scor/rdfstore";
+        String serviceEP = "http://infosys1.elfak.ni.ac.rs/semstartups/";
         SPARQLstore store = new SPARQLstoreClient(serviceEP);
 
         List<String> data = MyTestInsert.read(DS0_DIR + '/' + profit);
@@ -34,7 +34,7 @@ public class MyTestInsert {
         System.out.println(data);
 
         //CHECK
-        String testQuery = "SELECT * { GRAPH ?g { ?resource <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <"+TEST_GRAPH_NS+ SUBJECT+"> . ?resource ?p ?o . } }";
+        String testQuery = "SELECT * { GRAPH ?g { ?resource <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <"+TEST_GRAPH_NS + SUBJECT+"> . ?resource ?p ?o . } }";
         store.executeDatasetSPARQL(testQuery, System.out, "json", null);
 
     }
